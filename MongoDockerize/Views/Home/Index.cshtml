@@ -1,0 +1,67 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+@model  dbObjects
+
+
+
+<html>
+
+<body>
+
+    @using (Html.BeginForm())
+    {
+        <div class="text-center">
+            <h1 class="display-4">Welcome</h1>
+            <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+
+            <table id="database" style="width:100%" border="1">
+                <thead>
+                <th>
+                    DatabaseNames
+                </th>
+                </thead>
+
+                @{
+
+                    foreach (var item in Model.dbInfo)
+                    {
+                        <tr dir="ltr">
+                            <td>
+
+                                @Html.DisplayFor(Model => item)
+
+                            </td>
+
+                        </tr>
+                    }
+
+                }
+
+
+            </table>
+
+
+
+
+
+
+
+        </div>
+
+        <br />
+
+        <input type="button" value="Create" onclick="location.href='@Url.Action("Create", "Home")'" />
+
+
+    }
+
+
+
+
+
+</body>
+
+
+</html>
